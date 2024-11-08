@@ -1,99 +1,105 @@
-h2{
-    color:#695959;  
+/* Login.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
   }
-  .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-      font-family: 'Arial', sans-serif;
-    }
-    
-    .login-box {
-      background-color: white;
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-bottom: 30px;
-      padding-top: 20px;
-      border-radius: 8px;
-      border: 1px solid black;
-      width:28%;
-      text-align: center;
-    }
-    
   
-    .login-box h1 {
-      color: #fbbc05; 
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    
-    .login-box h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    
+  .signup-card {
+    display: flex;
+    width: 800px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
   
-    p {
-      margin-bottom: 30px;
-      color: black
-    }
-    
-    .form-group {
-      margin-bottom: 20px;
-    }
-    
-    .forgot-password {
-      display: block;
-      text-align: left;
-      color: #1a73e8;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    
+  .leftSide, .rightSide {
+    padding: 20px;
+  }
   
-    .forgot-password:hover {
-      text-decoration: underline;
-    }
-    
+  .leftSide {
+    width: 60%;
+  }
   
-    .actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
+  #name {
+    font-size: 2em;
+    color: orange;
+  }
   
-    .create-account {
-      color: #1a73e8;
-      text-decoration: none;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    
-    .create-account:hover {
-      text-decoration: underline;
-    }
-    
+  .signup-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
   
-    button[type="submit"] {
-      background-color: #1a73e8;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s;
-    }
-    
-    
-    button[type="submit"]:hover {
-      background-color: #1558b6;
-    }
+  .name-fields, .field-wrapper, .password-field {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
   
+  .field-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
   
-    
-    
+  .field-wrapper input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .hint {
+    color: #6c757d;
+    font-size: 0.9em;
+  }
+  
+  .error-msg {
+    color: red;
+    font-size: 0.8em;
+  }
+  
+  .button-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .button-part .signin {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  .button-part .register {
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .rightSide {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f9fc;
+  }
+  
+  .rightSide img {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .rightSide p {
+    text-align: center;
+    color: #6c757d;
+  }
+  
