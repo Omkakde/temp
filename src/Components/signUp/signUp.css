@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+#head-text {
+    color: orange;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.name-container,
+.password-container {
+    width: 100%;
+}
+
+.password-container {
+    margin-top: 15px;
+}
+
+.firstLine, .secondLine {
+    font-size: 18px;
+    text-align: center;
+}
+
+.line1 {
+    margin-top: 1%;
+    font-size: 12px;
+    color: gray;
+}
+
+.signin-register {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.line3 {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007BFF;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    width: 450px;
+    display: flex;
+    flex-direction: column; /* Column layout for the whole container */
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+#head-text {
+    color: orange;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.name-container,
+.password-container {
+    width: 100%;
+    display: flex;  /* Use flex for column layout */
+    flex-direction: column; /* Ensure input and error are stacked vertically */
+}
+
+.password-container {
+    margin-top: 15px;
+}
+
+.firstLine, .secondLine {
+    font-size: 18px;
+    text-align: center;
+}
+
+.line1 {
+    margin-top: 1%;
+    font-size: 12px;
+    color: gray;
+}
+
+.signin-register {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.line3 {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007BFF;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.emailErr,
+.passwordErr {
+    color: red;
+    font-size: 12px; /* Set font size */
+    margin-top: 5px; /* Adds space between the input field and error message */
+    text-align: left; /* Align error messages to the left */
+    width: 100%; /* Make sure the error messages don’t overflow */
+}
+
+.emailErr {
+    /* Align the error message with the input field */
+}
+
+.passwordErr {
+    /* Align the error message with the input field */
+}
