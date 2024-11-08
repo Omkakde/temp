@@ -1,87 +1,99 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: rgb(255, 255, 255);
-   
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;}
-
-
-
-.main-container{
-    display: flex;
-    align-items: center;
-    max-width: 10000px;
-    border: 1px solid black;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 2%;
+h2{
+    color:#695959;  
+  }
+  .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      font-family: 'Arial', sans-serif;
+    }
     
-}
-#head-text{
-    color: orange;
-    font-size: 2rem;
-    padding: 0;
-    margin: 0;
-}
-
-
-.signin-register{
-    display: flex;
-    flex-direction: row;
-    gap: 50%;
-}
-
-.line2 ,.line1{
-    margin-top: 1%;
-}
-
-
-@media (max-width: 600px) {
-    body {
-        display: block; 
-        justify-content: flex-start; 
-        height: auto;
-        padding: 10px;
+    .login-box {
+      background-color: white;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 30px;
+      padding-top: 20px;
+      border-radius: 8px;
+      border: 1px solid black;
+      width:28%;
+      text-align: center;
     }
-
-    .main-container {
-        width: 100%;
-        padding: 10px;
-        border: none; 
+    
+  
+    .login-box h1 {
+      color: #fbbc05; 
+      font-size: 32px;
+      margin-bottom: 10px;
     }
-
-    #head-text {
-        font-size: 1.5rem; 
-        text-align: center; 
+    
+    .login-box h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
-
-    .signin-register {
-        flex-direction: column; 
-        gap: 20px; 
+    
+  
+    p {
+      margin-bottom: 30px;
+      color: black
     }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-    body {
-        padding: 20px;
+    
+    .form-group {
+      margin-bottom: 20px;
     }
-
-    .main-container {
-        width: 80%;
-        padding: 20px;
-        border: 1px solid black;
+    
+    .forgot-password {
+      display: block;
+      text-align: left;
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
-
-    #head-text {
-        font-size: 1.8rem; 
+    
+  
+    .forgot-password:hover {
+      text-decoration: underline;
     }
-
-    .signin-register {
-        flex-direction: row;
-        gap: 30%;
+    
+  
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-}
+    
+  
+    .create-account {
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    .create-account:hover {
+      text-decoration: underline;
+    }
+    
+  
+    button[type="submit"] {
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    
+    
+    button[type="submit"]:hover {
+      background-color: #1558b6;
+    }
+  
+  
+    
+    
