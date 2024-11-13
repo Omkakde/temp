@@ -1,89 +1,135 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
+import photo1 from '../../assets/photo1.png'; 
+import React, { useState } from 'react';
+import './signUp.css'; 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import './signUp.css';
-import { useState } from 'react';
+import { SignUpApiCall } from '../../utils/Apis';   
 
-const SignUp = (() => {
+export default function SignUp() {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    
 
+    const [firstNameError, setFirstNameError] = useState(false);
+    const [lastNameError, setLastNameError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+    const [passwordMatchError, setPasswordMatchError] = useState(false);
 
-  const [showErr, setErrorMsg] = useState(false); 
-  const [showPass, setErrorPass] = useState(false); 
-
-  let getEmail = ""; 
-  let password = ""; 
-
-
-  const passwordRegex = /^[a-zA-Z0-9@^]+$/;
-
-
-  const handleLogin = () => {
-   
-    if (!getEmail.length) {
-      setErrorMsg(true);
-    } else {
-      setErrorMsg(false);
-    }
-
-   
-    if (!password.length || !passwordRegex.test(password)) {
-      setErrorPass(true);
-    } else {
-      setErrorPass(false);
-    }
-
- 
-    console.log('Email:', getEmail);
-    console.log('Password:', password);
-  };
-
-  return (
-    <Box component="form" sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }} noValidate autoComplete="off">
-      <div className="main-container">
-        <form>
-          <div className="head">
-            <h3 id="head-text">Fundoo</h3>
-            <h3 className="firstLine">Sign up</h3>  
-            <h3 className="secondLine">Use Your Fundoo Account</h3> 
-          </div>
-
-          {/* Email field */}
-          <div className="name-container">
-            <TextField 
-              id="outlined-first-name" 
-              onChange={e => getEmail = e.target.value} 
-              label="Email" 
-              variant="outlined" 
-              fullWidth 
-            />
-            {showErr && <span className='emailErr'><span> Email is required. </span></span>}
-          </div>
-
- 
-          <div className="password-container">
-            <TextField
-              id="outlined-password-input"
-              label="Password"
-              className="password"
-              type="password"
-              onChange={e => password = e.target.value}  
-              autoComplete="current-password"
-              fullWidth
-            />
-            <h5 className="line1">You can use letters, numbers & @ or ^ symbols</h5>
-            {showPass && <span className="passwordErr"><span>Password is invalid.</span></span>}
-          </div>
-
+    const handleRegister = async () => {
         
-          <div className="signin-register">
-            <a href="#" className="line3">Forget Password</a>
-            <Button className="submit-btn" onClick={handleLogin} variant="contained">Login</Button>
-          </div>
-        </form>
-      </div>
-    </Box>
-  );
-  }); 
+        setFirstNameError(!firstName);
+        setLastNameError(!lastName);
+        setUsernameError(!username);
+        setPasswordError(!password);
+        setConfirmPasswordError(!confirmPassword);
+        setPasswordMatchError(password !== confirmPassword);
 
-export default SignUp;
+        if (firstName && lastName && username && password && confirmPassword && password === confirmPassword) {
+            const payload = {
+                firstName,
+                lastName,
+                email: username, 
+                password,
+                "service":'advance'
+            };
+
+            try {
+                const response = await SignUpApiCall(payload, "/user/userSignUp");
+                
+                console.log("Registration successful:", response);
+            } catch (error) {
+                console.error("Registration failed:", error);
+            }
+        }
+    };
+
+    return (
+        <div className="container">
+            <div className="signup-card">
+                <div className="leftSide">
+                    <h1 id="name">Fundo</h1>
+                    <h2>Create your Fundo Account</h2>
+                    <form className="signup-form" id="signupForm">
+                        <div className="name-fields">
+                            <div className="field-wrapper">
+                                <TextField
+                                    required
+                                    label="First Name"
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                    error={firstNameError}
+                                    helperText={firstNameError ? "First name is required" : ""}
+                                />
+                            </div>
+                            <div className="field-wrapper">
+                                <TextField
+                                    required
+                                    label="Last Name"
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                    error={lastNameError}
+                                    helperText={lastNameError ? "Last name is required" : ""}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="field-wrapper">
+                            <TextField
+                                required
+                                label="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                error={usernameError}
+                                helperText={usernameError ? "Username is required" : "You can use letters, numbers, and periods"}
+                            />
+                        </div>
+
+                        <div className="password-field">
+                            <div className="field-wrapper">
+                                <TextField
+                                    required
+                                    label="Password"
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    error={passwordError}
+                                    helperText={passwordError ? "Password is required" : ""}
+                                />
+                            </div>
+                            <div className="field-wrapper">
+                                <TextField
+                                    required
+                                    label="Confirm Password"
+                                    type="password"
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    error={confirmPasswordError || passwordMatchError}
+                                    helperText={
+                                        confirmPasswordError ? "Confirm password is required" :
+                                        passwordMatchError ? "Passwords do not match" : ""
+                                    }
+                                />
+                            </div>
+                        </div>
+                        <p className="hint">Use 8 or more characters with a mix of letters, numbers, and symbols</p>
+
+                        <div className="button-part">
+                            <a href="#" className="signin">Sign in Instead</a>
+                            <Button variant="contained" onClick={handleRegister}>Register</Button>
+                        </div>
+                    </form>
+                </div>
+
+                <div className="rightSide">
+                     <img src={photo1} alt="User Icon" />
+                    <p>One Account. All of Fundo working for you.</p>
+                </div>
+            </div>
+        </div>
+    );
+}

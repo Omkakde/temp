@@ -1,0 +1,22 @@
+.Drawer-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px;
+    
+  }
+  
+  .Drawer-list span {
+   
+    font-size: 18px; /* Adjust font size as needed */
+    padding: 8px 0; /* Add space between items */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Drawer-list span:hover {
+    background-color: rgba(255, 166, 0, 0.395); /* Orange background on hover */
+    color: white; /* Optional: Change text color on hover */
+    border-radius: 5px; /* Optional: Rounded corners */
+    padding-left: 12px; /* Optional: Extra padding for a slight shift effect */
+  }
+  

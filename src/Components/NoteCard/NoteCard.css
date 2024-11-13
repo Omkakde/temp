@@ -1,0 +1,34 @@
+.card-wrapper-cnt {
+  
+
+}
+
+
+.card-main-cnt {
+ min-width: 250px;
+ min-height: 200px;
+ border-radius: 15px;
+ box-shadow: 2px 2px 5px rgba(213, 213, 213, 0.8);
+ padding: 5px;
+ padding-bottom: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ background-color: white;
+ padding: 5%;
+}
+
+.card-main-cnt:hover .card-button-cnt {
+  visibility: visible;
+}
+
+.card-button-cnt {
+  display: flex;
+  justify-content: space-between;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.card-button-cnt :hover {
+  background-color: rgb(164, 166, 166);
+}

@@ -1,105 +1,162 @@
-/* Login.css */
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  body {
+    margin: 0;
+    padding: 0;
+    
+    background: rgb(255, 255, 255);
     height: 100vh;
-    background-color: #f0f2f5;
-  }
-  
-  .signup-card {
     display: flex;
-    width: 800px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .leftSide, .rightSide {
-    padding: 20px;
-  }
-  
-  .leftSide {
-    width: 60%;
-  }
-  
-  #name {
-    font-size: 2em;
-    color: orange;
-  }
-  
-  .signup-form h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-  
-  .name-fields, .field-wrapper, .password-field {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .field-wrapper {
-    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    width: 450px;
     display: flex;
     flex-direction: column;
-  }
-  
-  .field-wrapper input {
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .hint {
-    color: #6c757d;
-    font-size: 0.9em;
-  }
-  
-  .error-msg {
-    color: red;
-    font-size: 0.8em;
-  }
-  
-  .button-part {
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+#head-text {
+    color: orange;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.name-container,
+.password-container {
+    width: 100%;
+}
+
+.password-container {
+    margin-top: 15px;
+}
+
+.firstLine, .secondLine {
+    font-size: 18px;
+    text-align: center;
+}
+
+.line1 {
+    margin-top: 1%;
+    font-size: 12px;
+    color: gray;
+}
+
+.signin-register {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-  }
-  
-  .button-part .signin {
-    color: #1a73e8;
+}
+
+.line3 {
     text-decoration: none;
-  }
-  
-  .button-part .register {
-    padding: 10px 20px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .rightSide {
-    width: 40%;
+    font-size: 14px;
+    color: #007BFF;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f7f9fc;
-  }
-  
-  .rightSide img {
-    width: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .rightSide p {
+}
+
+.main-container {
+    width: 450px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+#head-text {
+    color: orange;
+    font-size: 2rem;
     text-align: center;
-    color: #6c757d;
-  }
-  
+}
+
+.name-container,
+.password-container {
+    align-items: center;
+    width: 100%;
+    display: flex;  
+    flex-direction: column; 
+}
+
+.password-container {
+    align-items: center;
+    margin-top: 15px;
+}
+
+.firstLine, .secondLine {
+    font-size: 18px;
+    text-align: center;
+}
+
+.line1 {
+    margin-top: 1%;
+    font-size: 12px;
+    color: gray;
+}
+
+.signin-register {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10%;
+}
+
+.line3 {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007BFF;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.emailErr,
+.passwordErr {
+    color: red;
+    font-size: 12px; 
+    margin-top: 5px; 
+    text-align: left; 
+    width: 100%; 
+}
+
+
+@media only screen and (min-width: 375px) and (max-width: 424px) {
+    .signin-register{
+        display: flex;
+        flex-direction: column;
+    }
+}
