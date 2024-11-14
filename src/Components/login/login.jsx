@@ -19,7 +19,6 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-  
     let valid = true;
 
     if (!getEmail.trim()) {
@@ -40,24 +39,22 @@ function Login() {
       setLoading(true);
       setErrorMessage("");
 
-      try {// try don't use use then. and .catch for handle promise
-        const response = await loginApiCall(getEmail, password);
-        console.log("Login successful:", response);
+      loginApiCall(getEmail, password)
+        .then((response) => {
+          console.log("Login successful:", response);
 
-        const { tokens, userId } = response.data; 
-        localStorage.setItem("userId", userId);
-        localStorage.setItem("accessToken", tokens.access); 
-        localStorage.setItem("refreshToken", tokens.refresh);
-      } catch (error) {
-        console.error("Login error:", error);
-        setErrorMessage(
-          error.response?.data?.message || "Login failed. Please try again."
-        );
-      } finally {
-        setLoading(false);
-      }
-     
-    
+          const { tokens, userId } = response.data;
+          localStorage.setItem("userId", userId);
+          localStorage.setItem("accessToken", tokens.access);
+          localStorage.setItem("refreshToken", tokens.refresh);
+
+          setErrorMessage("Login successfully. Please proceed.");
+        })
+        .catch((error) => {
+          console.error("Login error:", error);
+
+          setErrorMessage("Login failed. Please try again.");
+        });
     }
   };
 
@@ -76,7 +73,6 @@ function Login() {
           <h3 className="secondLine">Use Your Fundoo Account</h3>
         </div>
 
-        
         <div className="name-container">
           <TextField
             id="outlined-first-name"
@@ -90,7 +86,6 @@ function Login() {
           {showErr && <span className="emailErr">Email is required.</span>}
         </div>
 
-       
         <div className="password-container">
           <TextField
             id="outlined-password-input"
@@ -111,10 +106,8 @@ function Login() {
           )}
         </div>
 
-        
         {errorMessage && <div className="errorMessage">{errorMessage}</div>}
 
-      
         <div className="signin-register">
           <a href="#" className="line3">
             Forgot Password?

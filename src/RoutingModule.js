@@ -4,6 +4,7 @@ import Login from "./Components/login/login";
 import Signup from "./Components/signUp/signUp";
 import NodeCard from "./Components/NoteCard/NoteCard";
 import AddNoteCard from "./Components/AddNote/AddNoteCard";
+import SliderBar from "./Components/Drawer/SliderBar.jsx";
 
 import AppBar from "./Components/Header/AppBar";
 import Dashboard from "./Components/pages/Dashboard";
@@ -30,6 +31,10 @@ function RoutingModule() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/newHeader",
+      element:<SliderBar/>
     },
     
 

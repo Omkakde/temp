@@ -8,14 +8,33 @@ import AppsIcon from '@mui/icons-material/Apps';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './AppBar.scss';
 
-function AppBar() {
+function AppBar({toggleDrawer}) {
+
+  function example(){
+    toggleDrawer();
+  }
   return (
-    <header >
+    <header>
+
     <div className="header">
     
-      <div className="drawer-btn">
+      <div className="drawer-btn" onClick={example}>
         <MenuIcon />
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className="logo">
         <img
           src="/logo.png"

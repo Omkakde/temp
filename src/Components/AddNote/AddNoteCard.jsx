@@ -25,26 +25,29 @@ const AddNoteCard = ({ handleNotesList }) => {
   const handleClose = () => {
     setIsExpanded(false);
     setTitle(""); 
+    setDescription("");
     handleAddNote();
-    setDescription(""); 
+    
   };
+
+
+   
+
 
   const handleAddNote = async () => {
     if (title && description) {
       const payload = { title, description, color };
-      try {
+      
         const response = await addNoteApi(payload);
-        if (response) {
-          
-          handleNotesList({ id: 110, title: title, description: description, quantity: 13 });
+        if (response) {       
+         // handleNotesList({ id: 110, title: response.title, description: response.description, quantity: 13 }, "add"); 
+          // add response data not static data
           console.log("Note added successfully:", response);
-        }
-      } catch (error) {
-        console.error("Error adding note:", error);
-      }
-    } else {
+        }   
+     else {
       console.log("Title and description are required.");
     }
+  }
   };
 
   return (
@@ -83,7 +86,7 @@ const AddNoteCard = ({ handleNotesList }) => {
             <div className="icons">
               <NotificationsNoneIcon className="icon" />
               <PersonAddIcon className="icon" />
-              <PaletteIcon className="icon" />
+              <PaletteIcon className="icon"  />
               <ImageIcon className="icon" />
               <ArchiveIcon className="icon" />
               <MoreVertIcon className="icon" />

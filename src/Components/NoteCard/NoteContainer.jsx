@@ -20,21 +20,49 @@ function NotesContainer() {
     //console.error("Error fetching notes:", error);
   };
 
-  const handleNotesList = (data) => {
-    console.log("New note added:", data);
-    setNotesList((prevNotes) => [...prevNotes, data]);
+  const handleNotesList = (data, action) => {
+    /// if action present then add, delte, remove
+    if(action==="add"){
+      console.log("New note added:", data);
+      setNotesList([...notesList, data]); // this only add one data
+    }
+    if (action==="archive") {
+      let array = notesList.filter((ele, index) => ele.id !== data.id);
+      setNotesList(array);
+    }
+    if (action==="delete") {
+      let array = notesList.filter((ele, index) => ele.id !== data.id);
+      setNotesList(array);
+    }
+    // setNotesList ([...notesList, data]);// same data line 25
   };
+  //callback syntax use for to use for update also next state
+
+  // const handleRemove = (parameter1)=>{
+
+  //    let array = notesList.filter((ele,index)=>
+  //         ele.id!==parameter1.id
+  //    )
+  //    setNotesList(array);
+  // }
 
   return (
-    <>
-      <div className="note-container">
+    <div className="main-contaier">
       <AddNote handleNotesList={handleNotesList} />
+      <div className="note-container">
+        {notesList.map((noteObj) => (
+          <NoteCard
+            key={noteObj.id}
+            noteDetails={noteObj}
+            handleNotesList={handleNotesList}
+            container={"notes"}
 
-      {notesList.map((noteObj) => (
-        <NoteCard key={noteObj.id} noteDetails={noteObj} />
-      ))}
+          />
+        ))}
+
+
       </div>
-    </>
+    </div>
   );
 }
 
