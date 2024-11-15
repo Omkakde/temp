@@ -24,17 +24,6 @@ function AppBar({toggleDrawer}) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
       <div className="logo">
         <img
           src="/logo.png"

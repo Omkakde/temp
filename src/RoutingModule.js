@@ -9,6 +9,10 @@ import SliderBar from "./Components/Drawer/SliderBar.jsx";
 import AppBar from "./Components/Header/AppBar";
 import Dashboard from "./Components/pages/Dashboard";
 import NotesContainer from "./Components/NoteCard/NoteContainer";
+import TrashContainer from "./Components/Trash/TrashContainer.jsx";
+import ArchiveContainer from "./Components/archive/ArchiveContainer.jsx";
+
+
 
 function RoutingModule() {
   const AppRoutes = createBrowserRouter([
@@ -16,26 +20,14 @@ function RoutingModule() {
       path: "/signup",
       element: <Signup />,
     },
-    {
-      path: "/noteCard",
-      element: <NodeCard />,
-    },
-    {
-      path: "/noteContainer",
-      element: <NotesContainer />,
-    },
-    {
-      path: "/addNote",
-      element: <AddNoteCard />,
-    },
+    
+   
+    
     {
       path: "/login",
       element: <Login />,
     },
-    {
-      path: "/newHeader",
-      element:<SliderBar/>
-    },
+   
     
 
     {
@@ -43,17 +35,17 @@ function RoutingModule() {
        element: <Dashboard />
       ,children: [
         {
-          path: "/header",
-          element: <AppBar />,
-        }
-        // {
-        //   path: "/archive",
-        //   element: <ArchiveContainer />,
-        // },
-        // {
-        //   path: "/trash",
-        //   element: <TrashContainer />,
-        // },
+          path: "/notes",
+          element: <NotesContainer/>,
+        },
+        {
+          path: "/archive",
+          element: <ArchiveContainer/>,
+        },
+        {
+          path: "/trash",
+          element: <TrashContainer/>,
+        },
       ],
     },
   ]);

@@ -9,6 +9,7 @@ export const loginApiCall = async (email, password) => {
   );
   console.log(res);
   localStorage.setItem("accessToken", res?.data?.id);
+  
 };
 
 export const SignUpApiCall = async (payload, END_POINT) => {
@@ -25,6 +26,23 @@ export const getAllNotesApiCall = () => {
     },
   });
 };
+
+
+export const archiveTrashApiCall = (endpoint ,payload) => {
+  const accessToken = localStorage.getItem("accessToken");
+
+  return axios.post(`${BASE_URL}${endpoint}`,payload, {
+    headers: {
+      Authorization: `${accessToken}`,
+    },
+  });
+};
+
+/*   add this same object in post method    {
+    headers: {
+      Authorization: `${accessToken}`,
+    },*/
+
 
 export const addNoteApi = (payload) => {
   return axios.post(

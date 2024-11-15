@@ -1,11 +1,16 @@
 import photo1 from '../../assets/photo1.png'; 
 import React, { useState } from 'react';
 import './signUp.css'; 
+import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { SignUpApiCall } from '../../utils/Apis';   
 
+
 export default function SignUp() {
+
+
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
@@ -21,7 +26,7 @@ export default function SignUp() {
     const [passwordMatchError, setPasswordMatchError] = useState(false);
 
     const handleRegister = async () => {
-        
+      
         setFirstNameError(!firstName);
         setLastNameError(!lastName);
         setUsernameError(!username);
@@ -119,7 +124,7 @@ export default function SignUp() {
                         <p className="hint">Use 8 or more characters with a mix of letters, numbers, and symbols</p>
 
                         <div className="button-part">
-                            <a href="#" className="signin">Sign in Instead</a>
+                            <a href="#" className="signin" >Sign in Instead</a>
                             <Button variant="contained" onClick={handleRegister}>Register</Button>
                         </div>
                     </form>

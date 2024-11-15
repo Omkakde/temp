@@ -19,18 +19,18 @@ function NotesContainer() {
 
     //console.error("Error fetching notes:", error);
   };
-
+// same use for trash container and archive
   const handleNotesList = (data, action) => {
     /// if action present then add, delte, remove
-    if(action==="add"){
+    if (action === "add") {
       console.log("New note added:", data);
       setNotesList([...notesList, data]); // this only add one data
     }
-    if (action==="archive") {
+    if (action === "archive") {
       let array = notesList.filter((ele, index) => ele.id !== data.id);
       setNotesList(array);
     }
-    if (action==="delete") {
+    if (action === "delete") {
       let array = notesList.filter((ele, index) => ele.id !== data.id);
       setNotesList(array);
     }
@@ -55,12 +55,9 @@ function NotesContainer() {
             key={noteObj.id}
             noteDetails={noteObj}
             handleNotesList={handleNotesList}
-            container={"notes"}
-
+            container={"delete"}
           />
         ))}
-
-
       </div>
     </div>
   );
