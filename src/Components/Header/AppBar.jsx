@@ -21,9 +21,6 @@ function AppBar({toggleDrawer}) {
       <div className="drawer-btn" onClick={example}>
         <MenuIcon />
       </div>
-
-
-
       <div className="logo">
         <img
           src="/logo.png"

@@ -18,21 +18,20 @@ function RoutingModule() {
   const AppRoutes = createBrowserRouter([
     {
       path: "/signup",
-      element: <Signup />,
+      element: <Signup/>,
     },
     
    
-    
     {
       path: "/login",
-      element: <Login />,
+      element: <Login/>,
     },
    
     
 
     {
       path: "/",
-       element: <Dashboard />
+       element: <Dashboard/>
       ,children: [
         {
           path: "/notes",

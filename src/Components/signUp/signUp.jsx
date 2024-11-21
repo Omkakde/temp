@@ -10,7 +10,7 @@ import { SignUpApiCall } from '../../utils/Apis';
 export default function SignUp() {
 
 
-    const navigate = useNavigate();
+   
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
@@ -52,7 +52,7 @@ export default function SignUp() {
             }
         }
     };
-
+    const navigate = useNavigate();
     return (
         <div className="container">
             <div className="signup-card">
@@ -124,7 +124,7 @@ export default function SignUp() {
                         <p className="hint">Use 8 or more characters with a mix of letters, numbers, and symbols</p>
 
                         <div className="button-part">
-                            <a href="#" className="signin" >Sign in Instead</a>
+                            <a href="#" className="signin" onClick={() => navigate('/login')}>Sign in Instead</a>
                             <Button variant="contained" onClick={handleRegister}>Register</Button>
                         </div>
                     </form>

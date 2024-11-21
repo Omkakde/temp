@@ -1,28 +1,35 @@
-
+/* Sidebar Drawer */
 .slider .MuiDrawer-paper {
-    width: 250px; /* Set your desired width */
-    margin-top: 71px;
-    box-shadow: none; 
-  }
-  .MuiBackdrop-root{
-    background-color:rgba(0, 0, 0, 0) !important;
-    }
-  
-  .slideimg{
-    width:35px;
-    margin-left:10px ;
-    margin-right: 30px;
-    
-  }
-  .slidename {
-    display: flex;
-    align-items: center;
-    border-top-right-radius: 15%;
-  border-bottom-right-radius: 15%;
-    padding: 10px;
-  }
-  
-  .slidename:hover {
-  
-    background-color: rgba(254, 161, 30, 0.7); 
-  }
+  width: 250px; /* Sidebar width */
+  margin-top: 71px; /* Matches header height + 1px for spacing */
+  gap: 10px; /* Consistent spacing between elements */
+  box-shadow: none; /* Removes default shadow */
+  border-right: 1px solid #e0e0e0; /* Optional: Adds a subtle border to separate sidebar from content */
+}
+
+/* Backdrop for Drawer */
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0) !important; /* Makes backdrop transparent */
+}
+
+/* Sidebar Icon/Image */
+.slideimg {
+  width: 35px; /* Consistent size for icons/images */
+  margin: 0 10px; /* Horizontal spacing for the image */
+}
+
+/* Sidebar Item */
+.slidename {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px; /* Consistent padding for better click area */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Sidebar Item Hover */
+.slidename:hover {
+  background-color: rgba(254, 161, 30, 0.7); /* Highlight color on hover */
+  cursor: pointer; /* Adds a pointer cursor for better UX */
+}

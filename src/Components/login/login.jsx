@@ -70,6 +70,7 @@ export default function Login() {
   };
 
   return (
+    <div className="main-container">
     <Box
     component="form"
     onSubmit={handleLogin}
@@ -77,7 +78,7 @@ export default function Login() {
     noValidate
     autoComplete="off"
   >
-    <div className="main-container">
+    <div className="main">
       <div className="head">
         <h3 id="head-text">Fundoo</h3>
         <h3 className="firstLine">Sign In</h3>
@@ -127,8 +128,9 @@ export default function Login() {
 
 
       <div className="signin-register">
-        <a href="#" onClick={navigate("/signup")} className="line3">
-          Create Account
+        <a href="#"  className="line3">
+      
+          <h4 onClick={() => navigate('/signUp')}>Create Account</h4>
         </a>
         <div className="buttoncnt">
         <Button
@@ -143,5 +145,6 @@ export default function Login() {
       </div>
     </div>
   </Box>
+  </div>
   );
 }

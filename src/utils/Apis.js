@@ -9,7 +9,6 @@ export const loginApiCall = async (email, password) => {
   );
   console.log(res);
   localStorage.setItem("accessToken", res?.data?.id);
-  
 };
 
 export const SignUpApiCall = async (payload, END_POINT) => {
@@ -27,11 +26,9 @@ export const getAllNotesApiCall = () => {
   });
 };
 
-
-export const archiveTrashApiCall = (endpoint ,payload) => {
+export const archiveTrashApiCall = (endpoint, payload) => {
   const accessToken = localStorage.getItem("accessToken");
-
-  return axios.post(`${BASE_URL}${endpoint}`,payload, {
+  return axios.post(`${BASE_URL}${endpoint}`, payload, {
     headers: {
       Authorization: `${accessToken}`,
     },
@@ -43,6 +40,14 @@ export const archiveTrashApiCall = (endpoint ,payload) => {
       Authorization: `${accessToken}`,
     },*/
 
+export const getArchiveTrashNotesList = (END_POINT) => {
+  const accessToken = localStorage.getItem("accessToken");
+  return axios.get(`${BASE_URL}${END_POINT}`, {
+    headers: {
+      Authorization: `${accessToken}`,
+    },
+  });
+};
 
 export const addNoteApi = (payload) => {
   return axios.post(
@@ -55,4 +60,21 @@ export const addNoteApi = (payload) => {
       },
     }
   );
+};
+
+// Update a note
+export const updateNotesApiCall = async (payload) => {
+  const token = localStorage.getItem("accessToken");
+  const response = await axios.post(
+    `https://fundoonotes.incubation.bridgelabz.com/api/notes/updateNotes
+`,
+    payload,
+    {
+      headers: {
+        Authorization: `${token}`,
+      },
+    }
+  );
+  console.log("Note updated successfully:", response.data);
+  return response.data;
 };

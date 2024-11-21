@@ -11,11 +11,12 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import RestoreFromTrashIcon from "@mui/icons-material/RestoreFromTrash";
 import UnarchiveIcon from "@mui/icons-material/Unarchive";
 import { archiveTrashApiCall } from "../../utils/Apis";
-
+import Modal from "@mui/material/Modal";
+import AddNote from "../AddNote/AddNoteCard.jsx";
 export default function NoteCard(props) {
   const { noteDetails, handleNotesList, container } = props;
-  const [bgColor, setBgColor] = useState("white");
-
+  const [bgColor, setBgColor] = useState(noteDetails.color || "#ffffff");
+  const [editNote, setEditNote] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openColorMenu, setOpenColorMenu] = useState(false);
 
@@ -25,6 +26,7 @@ export default function NoteCard(props) {
   const handleColorMenuClick = () => {
     setOpenColorMenu(!openColorMenu);
   };
+
   const handleColorSelect = (color) => {
     setBgColor(color);
     setOpenColorMenu(false);
@@ -33,11 +35,11 @@ export default function NoteCard(props) {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  // add api here...  first check action
   const handleNoteIconClick = (action) => {
     let payload = {
       noteIdList: [noteDetails.id],
@@ -47,23 +49,35 @@ export default function NoteCard(props) {
       payload.isArchived = true;
       archiveTrashApiCall("/notes/archiveNotes", payload);
     }
+    if (action === "delete_forever") {
+      payload.isDeleted = true;
+      archiveTrashApiCall("/notes/deleteForeverNotes", payload);
+    }
+
     if (action === "trash") {
-      payload.isArchived = false;
+      payload.isDeleted = true;
       archiveTrashApiCall("/notes/trashNotes", payload);
     }
 
-    // first check action then call api also add payload with
-    // create method that  note.id
-    // add access token in header
     handleNotesList(noteDetails, action);
+  };
+
+  const handleEditNote = (data, action) => {
+    setEditNote(false);
+    handleNotesList(data, action);
   };
 
   return (
     <div className="card-wrapper-cnt">
       <div className="card-main-cnt" style={{ backgroundColor: bgColor }}>
-        <div className="note-card-content">
-          <h6>{noteDetails.title || "Untitled"}</h6>
-          <p>{noteDetails.description || "No description"}</p>
+        <div
+          className="note-card-content"
+          onClick={() => {
+            setEditNote(true);
+          }}
+        >
+          <h6>{noteDetails.title}</h6>
+          <p>{noteDetails.description}</p>
         </div>
 
         {(container === "notes" || container === "archive") && (
@@ -110,7 +124,7 @@ export default function NoteCard(props) {
             {container === "archive" ? (
               <IconButton
                 aria-label="archive note"
-                onClick={() => handleNoteIconClick("notes")}
+                onClick={() => handleNoteIconClick("unArchive")}
               >
                 <UnarchiveIcon />
               </IconButton>
@@ -133,7 +147,7 @@ export default function NoteCard(props) {
               onClose={handleClose}
               TransitionComponent={Fade}
             >
-              <MenuItem onClick={() => handleNoteIconClick("delete")}>
+              <MenuItem onClick={() => handleNoteIconClick("trash")}>
                 Delete note
               </MenuItem>
               <MenuItem onClick={handleClose}>Add label</MenuItem>
@@ -142,13 +156,13 @@ export default function NoteCard(props) {
           </div>
         )}
 
-        {container === "delete" && (
+        {container === "trash" && (
           <div className="delete-container-btn">
             <div className="card-button-cnt">
               <div className="delete">
                 <IconButton
                   aria-label="delete forever"
-                  onClick={() => handleNoteIconClick("delete")}
+                  onClick={() => handleNoteIconClick("delete_forever")}
                 >
                   <DeleteForeverIcon />
                 </IconButton>
@@ -156,7 +170,7 @@ export default function NoteCard(props) {
               <div className="other-delete">
                 <IconButton
                   aria-label="restore from trash"
-                  onClick={() => handleNoteIconClick("notes")}
+                  onClick={() => handleNoteIconClick("recover")}
                 >
                   <RestoreFromTrashIcon />
                 </IconButton>
@@ -164,6 +178,21 @@ export default function NoteCard(props) {
             </div>
           </div>
         )}
+
+        <Modal
+          open={editNote}
+          onClose={() => {
+            setEditNote(false);
+          }}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <AddNote
+            mode={"edit"}
+            noteDetails={noteDetails}
+            handleNotesList={handleEditNote}
+          />
+        </Modal>
       </div>
     </div>
   );

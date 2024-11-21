@@ -1,0 +1,10 @@
+.note-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 50px; /* Space between grid items */
+    padding: 16px;
+    margin-left: 7%;
+}
+body, html {
+    overflow: auto;
+}

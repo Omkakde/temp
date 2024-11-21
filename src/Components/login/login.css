@@ -1,14 +1,13 @@
+
+
 body {
     margin: 0;
-    padding: 0;
-    background: rgb(255, 255, 255);
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-container {
+    display: grid;
+    place-items: center;
+  }
+  
+  .main {
     width: 450px;
     display: flex;
     flex-direction: column;
@@ -17,8 +16,8 @@ body {
     border-radius: 8px;
     border: 1px solid rgb(83, 81, 81);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
+  }
+  
 #head-text {
     color: orange;
     font-size: 2rem;

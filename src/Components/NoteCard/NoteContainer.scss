@@ -1,13 +1,29 @@
-
-
-
-.note-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-    gap: 50px; /* Space between grid items */
-    padding: 16px;
-    margin-left: 7%;
-}
 body, html {
-    overflow: auto;
-}
+    margin: 0;
+    height: 100%; 
+    overflow: hidden; 
+  }
+  
+ 
+  .slider .MuiDrawer-paper {
+
+    z-index: 2; 
+    position: fixed;
+    height: 100%; 
+    overflow-y: auto; 
+  }
+  
+
+  .note-container {
+    z-index: 900;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 16px; 
+    padding: 16px;
+    margin-top: 71px; 
+    width: 100%; 
+    box-sizing: border-box; 
+  
+    transition: margin-left 0.3s ease, margin-top 0.3s ease; 
+  }
+  
